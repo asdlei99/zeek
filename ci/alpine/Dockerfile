@@ -2,7 +2,7 @@ FROM alpine:latest
 
 # A version field to invalidate Cirrus's build cache when needed, as suggested in
 # https://github.com/cirruslabs/cirrus-ci-docs/issues/544#issuecomment-566066822
-ENV DOCKERFILE_VERSION 20221201
+ENV DOCKERFILE_VERSION 20221208
 
 RUN apk add --no-cache \
   bash \
@@ -27,4 +27,4 @@ RUN apk add --no-cache \
   swig \
   zlib-dev
 
-RUN pip3 install websockets junit2html
+RUN pip3 install websockets junit2html multiprocess

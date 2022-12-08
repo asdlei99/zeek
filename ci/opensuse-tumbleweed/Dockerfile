@@ -2,7 +2,7 @@ FROM opensuse/tumbleweed
 
 # A version field to invalidate Cirrus's build cache when needed, as suggested in
 # https://github.com/cirruslabs/cirrus-ci-docs/issues/544#issuecomment-566066822
-ENV DOCKERFILE_VERSION 20221027
+ENV DOCKERFILE_VERSION 20221208
 
 RUN zypper refresh \
  && zypper in -y \
@@ -30,4 +30,4 @@ RUN zypper refresh \
     zlib-devel \
   && rm -rf /var/cache/zypp
 
-RUN pip3 install websockets junit2html
+RUN pip3 install websockets junit2html multiprocess

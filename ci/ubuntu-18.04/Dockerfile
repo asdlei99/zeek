@@ -4,7 +4,7 @@ ENV DEBIAN_FRONTEND="noninteractive" TZ="America/Los_Angeles"
 
 # A version field to invalidate Cirrus's build cache when needed, as suggested in
 # https://github.com/cirruslabs/cirrus-ci-docs/issues/544#issuecomment-566066822
-ENV DOCKERFILE_VERSION 20220519
+ENV DOCKERFILE_VERSION 20221208
 
 ENV CMAKE_DIR "/opt/cmake"
 ENV CMAKE_VERSION "3.19.1"
@@ -41,7 +41,7 @@ RUN apt-get update && apt-get -y install \
 RUN mkdir -p "${CMAKE_DIR}" \
   && curl -sSL "https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/cmake-${CMAKE_VERSION}-Linux-x86_64.tar.gz" | tar xzf - -C "${CMAKE_DIR}" --strip-components 1
 
-RUN pip3 install websockets junit2html
+RUN pip3 install websockets junit2html multiprocess
 RUN gem install coveralls-lcov
 
 RUN update-alternatives --install /usr/bin/cc cc /usr/bin/clang-10 100

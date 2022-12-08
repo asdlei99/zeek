@@ -2,7 +2,7 @@ FROM fedora:36
 
 # A version field to invalidate Cirrus's build cache when needed, as suggested in
 # https://github.com/cirruslabs/cirrus-ci-docs/issues/544#issuecomment-566066822
-ENV DOCKERFILE_VERSION 20220614
+ENV DOCKERFILE_VERSION 20221208
 
 RUN dnf -y install \
     bison \
@@ -28,4 +28,4 @@ RUN dnf -y install \
     zlib-devel \
   && dnf clean all && rm -rf /var/cache/dnf
 
-RUN pip3 install websockets junit2html
+RUN pip3 install websockets junit2html multiprocess

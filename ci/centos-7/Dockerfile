@@ -2,7 +2,7 @@ FROM centos:7
 
 # A version field to invalidate Cirrus's build cache when needed, as suggested in
 # https://github.com/cirruslabs/cirrus-ci-docs/issues/544#issuecomment-566066822
-ENV DOCKERFILE_VERSION 20220519
+ENV DOCKERFILE_VERSION 20221208
 
 ENV FLEX_VERSION=2.6.4
 ENV FLEX_DIR=/opt/flex
@@ -55,7 +55,7 @@ RUN curl -sSL "https://github.com/westes/flex/releases/download/v${FLEX_VERSION}
      && make -j`nproc` install) \
  && rm -rf /tmp/flex-${FLEX_VERSION}
 
-RUN pip3 install websockets junit2html
+RUN pip3 install websockets junit2html multiprocess
 
 RUN echo 'unset BASH_ENV PROMPT_COMMAND ENV' > /usr/bin/zeek-ci-env && \
     echo 'source /opt/rh/devtoolset-8/enable' >> /usr/bin/zeek-ci-env && \

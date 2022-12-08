@@ -9,6 +9,7 @@ brew update
 brew upgrade cmake openssl@1.1
 brew install swig bison flex ccache
 python3 -m pip install --user websockets
+python3 -m pip install --user multiprocess
 
 # Brew doesn't create the /opt/homebrew/opt/openssl symlink if you install
 # openssl@1.1, only with 3.0. Create the symlink if it doesn't exist.
