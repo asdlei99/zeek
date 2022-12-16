@@ -85,6 +85,8 @@ event zeek_init() &priority=5
 
 		return new_value;
 	};
+	Option::set_change_handler("Analyzer::Logging::include_confirmations",
+	                           include_confirmations_handler);
 
 	# Call the handlers directly with the current values to avoid config
 	# framework interactions like creating entries in config.log.
